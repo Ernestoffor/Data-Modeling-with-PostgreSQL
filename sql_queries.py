@@ -9,12 +9,15 @@ time_table_drop = "DROP TABLE IF EXISTS time";
 
 # CREATE TABLES
 
-songplay_table_create = ("CREATE TABLE IF NOT EXISTS songplays(songplay_id SERIAL PRIMARY KEY, start_time TIME, \
-                                                 user_id int, level varchar,\
-                                                 song_id varchar, artist_id varchar, \
-                                                 session_id varchar, location varchar,\
-                                                 user_agent varchar)");
-user_table_create = ("CREATE TABLE IF EXISTS users(user_id int, first_name varchar, \
+songplay_table_create = ("CREATE TABLE IF NOT EXISTS songplays(songplay_id SERIAL PRIMARY KEY NOT NULL,\
+                                                start_time TIME NOT NULL, \
+                                                 user_id numeric NOT NULL, level varchar NOT NULL,\
+                                                 song_id varchar NOT NULL, \
+                                                artist_id varchar NOT NULL, \
+                                                 session_id numeric NOT NULL,\
+                                                 location varchar NOT NULL,\
+                                                 user_agent varchar NOT NULL)");
+user_table_create = ("CREATE TABLE IF NOT EXISTS users(user_id numeric NOT NULL, first_name varchar, \
                     last_name varchar, gender varchar, level varchar)");
 
 song_table_create = ("CREATE TABLE IF NOT EXISTS songs(song_id varchar, title varchar, artist_id varchar,\
