@@ -10,13 +10,13 @@ time_table_drop = "DROP TABLE IF EXISTS time";
 # CREATE TABLES
 
 songplay_table_create = ("CREATE TABLE IF NOT EXISTS songplays(songplay_id SERIAL PRIMARY KEY NOT NULL,\
-                                                start_time TIME NOT NULL, \
+                                                start_time BIGINT NOT NULL, \
                                                  user_id numeric NOT NULL, level varchar NOT NULL,\
-                                                 song_id varchar NOT NULL, \
-                                                artist_id varchar NOT NULL, \
-                                                 session_id numeric NOT NULL,\
-                                                 location varchar NOT NULL,\
-                                                 user_agent varchar NOT NULL)");
+                                                 song_id varchar, \
+                                                artist_id varchar, \
+                                                 session_id numeric ,\
+                                                 location varchar ,\
+                                                 user_agent varchar)");
 user_table_create = ("CREATE TABLE IF NOT EXISTS users(user_id numeric NOT NULL, first_name varchar, \
                     last_name varchar, gender varchar, level varchar)");
 
@@ -31,9 +31,9 @@ time_table_create = ("CREATE TABLE IF NOT EXISTS time(start_time TIME, hour int,
 
 # INSERT RECORDS
 
-songplay_table_insert = ("INSERT INTO songplays(songplay_id, start_time, user_id, level, \
+songplay_table_insert = ("INSERT INTO songplays(start_time, user_id, level, \
                         song_id, artist_id, session_id, location, user_agent) \
-                        VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)")
+                        VALUES(%s, %s, %s, %s, %s, %s, %s, %s)")
 
 user_table_insert = ("INSERT INTO users(user_id, first_name, last_name, gender, level)\
                         VALUES(%s, %s, %s, %s, %s)")
@@ -51,7 +51,7 @@ time_table_insert = ("INSERT INTO time(start_time, hour, day, week, month, year,
 # FIND SONGS
 
 song_select = "SELECT songs.song_id , artists.artist_id FROM songs JOIN artists ON songs.artist_id = artists.artist_id\
-                WHERE title=(%s) AND artist_name=(%s) AND duration=(%s)"
+                WHERE title=(%s) AND name=(%s) AND duration=(%s)"
 
 # QUERY LISTS
 

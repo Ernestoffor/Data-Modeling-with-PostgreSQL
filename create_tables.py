@@ -7,22 +7,24 @@ def create_database():
     - Creates and connects to the sparkifydb
     - Returns the connection and cursor to sparkifydb
     """
-    
+    #cur.execute("DROP DATABASE IF EXISTS ernest")
+    #cur.execute("CREATE DATABASE ernest")
     # connect to default database
     conn = psycopg2.connect("host=127.0.0.1 dbname=studentdb user=student password=student")
+   # conn = psycopg2.connect("host=127.0.0.1 dbname=postgres, user=postgres password=")
     conn.set_session(autocommit=True)
     cur = conn.cursor()
     
     # create sparkify database with UTF8 encoding
-    cur.execute("DROP DATABASE IF EXISTS sparkifydb")
-    cur.execute("CREATE DATABASE sparkifydb WITH ENCODING 'utf8' TEMPLATE template0")
-
+   # cur.execute("DROP DATABASE IF EXISTS sparkifydb")
+    #cur.execute("CREATE DATABASE sparkifydb WITH ENCODING 'utf8' TEMPLATE template0")
+    #cur.execute("CREATE DATABASE sparkifydb OWNER postgres")
     # close connection to default database
     conn.close()    
     
     # connect to sparkify database
-    #conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
-    conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=ernest password=Offor20Aug")
+    conn = psycopg2.connect("host=127.0.0.1 dbname=sparkify user=student password=student")
+
     cur = conn.cursor()
     
     return cur, conn

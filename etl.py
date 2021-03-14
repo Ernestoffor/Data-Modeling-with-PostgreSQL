@@ -10,11 +10,14 @@ def process_song_file(cur, filepath):
     df = pd.read_json(filepath, lines=True)
 
     # insert song record
-    song_data = df['song_id, title, artist_id, year, duration']
+    song_data =  song_data = df[['song_id', 'title', 'artist_id', 'year', 'duration']].values.tolist()[0]
+    song_data
     cur.execute(song_table_insert, song_data)
     
     # insert artist record
-    artist_data = df[['artist_id', 'name', 'location', 'latitude', 'longitude']]
+    artist_data = df[['artist_id', 'artist_name', 'artist_location', 'artist_latitude',\
+                      'artist_longitude']].values.tolist()[0]
+    artist_data
     cur.execute(artist_table_insert, artist_data)
 
 
@@ -33,13 +36,13 @@ def process_log_file(cur, filepath):
     time_data = [t, t.dt.hour, t.dt.day, t.dt.week, t.dt.month, t.dt.year, t.dt.dayofweek]
 
     column_labels = ['start_time', 'hour', 'day', 'week', 'month', 'year', 'weekday']
-    time_df = pd.DataFrame(dict(zip(columns=column_labels, time_data)))
+    time_df = pd.DataFrame(dict(zip(column_labels, time_data)))
 
     for i, row in time_df.iterrows():
         cur.execute(time_table_insert, list(row))
 
     # load user table
-    user_df = df['user_id', 'first_name', 'last_name', 'gender', 'level']
+    user_df = df[['userId', 'firstName', 'lastName', 'gender', 'level']]
 
 
     # insert user records
@@ -59,7 +62,8 @@ def process_log_file(cur, filepath):
             songid, artistid = None, None
 
         # insert songplay record
-        songplay_data = 
+        songplay_data = (row.ts, row.userId, row.level, songid, artistid, row.sessionId, \
+                         row.location, row.userAgent)
         cur.execute(songplay_table_insert, songplay_data)
 
 
