@@ -21,8 +21,13 @@ The fact table is called songplays while songs, users, artists and time  tables 
     . run test.ipynb in Ipython
                             ```
 
+## Credits
+This project is a partial requirement for the completion of Udacity Data Engineering Nanodegree program. Hence, it is designed to meet Udacity project rubrics. 
 
-
+## Software Packages
+ -> Python2 or Python3
+ -> PostgreSQL
+ -> psycopg2 (a python driver for postgresql)
 
 
 
