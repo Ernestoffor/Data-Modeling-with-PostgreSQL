@@ -12,11 +12,14 @@ The fact table is called songplays while songs, users, artists and time  tables 
 3. ETL processes are developed in the etl.ipynb file to extract and tranform some data from the the given directories and load them into the tables created in step 1. test.ipynb is again used to check the correctness of the ETL operations. Thereafter, create_tables.py is developed to be run after each run of etl.ipynb followed by test.ipynb to reset the tables.
 
 4. Finally, etl.py file is where ETL pipeline processing is carried out on the entire datasets. 
-5. The order and methods of running the files are as follows:
+
+## The order and methods of running the files are as follows:
+    ```
     . python3 sql_queries.py
     . python3 create_tables.py
-    . python3 etl.py
+    . python3 etl.py or run the etl.ipynb
     . run test.ipynb in Ipython
+                            ```
 
 
 
