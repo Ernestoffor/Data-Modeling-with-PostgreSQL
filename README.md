@@ -14,15 +14,14 @@ The fact table is called songplays while songs, users, artists and time  tables 
 4. Finally, etl.py file is where ETL pipeline processing is carried out on the entire datasets. 
 
 ## The order and methods of running the files are as follows:
-    ```
+    `
     . python3 sql_queries.py
     . python3 create_tables.py
     . python3 etl.py or run the etl.ipynb
     . run test.ipynb in Ipython
-                            ```
-
+                            `
 ## Credits
-This project is a partial requirement for the completion of Udacity Data Engineering Nanodegree program. Hence, it is designed to meet Udacity project rubrics. 
+This project is a partial requirement for the completion of Udacity Data Engineering Nanodegree program. Hence, it is designed to meet Udacity project rubrics. [](www.udacity.com/)
 
 ## Software Packages
  -> Python2 or Python3
