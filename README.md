@@ -23,6 +23,7 @@ The fact table is called songplays table while songs, users, artists and time  t
     * main function: This defines all the argument/inputs variables and does the actual work of extraction, transformation and loading of the data.
 
 ## The order and methods of running the files are as follows:
+<<<<<<< HEAD
    
 1.  python3 sql_queries.py
 1.  python3 create_tables.py
@@ -30,8 +31,24 @@ The fact table is called songplays table while songs, users, artists and time  t
 1.  Run test.ipynb in Ipython
                             
 
+||||||| merged common ancestors
+    ```
+    . python3 sql_queries.py
+    . python3 create_tables.py
+    . python3 etl.py or run the etl.ipynb
+    . run test.ipynb in Ipython
+                            ```
+
+=======
+    `
+    . python3 sql_queries.py
+    . python3 create_tables.py
+    . python3 etl.py or run the etl.ipynb
+    . run test.ipynb in Ipython
+                            `
+>>>>>>> 4479ac769f10db36a231400439f13e6e874a4a1a
 ## Credits
-This project is a partial requirement for the completion of Udacity Data Engineering Nanodegree program. Hence, it is designed to meet Udacity project rubrics. 
+This project is a partial requirement for the completion of Udacity Data Engineering Nanodegree program. Hence, it is designed to meet Udacity project rubrics. [](www.udacity.com/)
 
 ## Software Packages
 * Python2 or Python3
