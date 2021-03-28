@@ -1,12 +1,12 @@
 # Data Modeling in PostgreSQL
 This project centers on building an ETL (Extract, Transform and Load) data pipeline in PostgreSQL RDBM.
 The aim of the project is to simplify quering of data collected by a music streaming company in their app directory  JSON logs and another JSON directory containing some metadata. 
-The project develops a star schema consisting of a fact table and four dimensional tables.
+In the project a star schema consisting of a fact table and four dimensional tables is developed.
 The fact table is called songplays while songs, users, artists and time  tables are the dimensional tables. 
-The fact table is called songplays table while songs, users, artists and time  tables are the dimensional tables. The star schema is shown in the figure below. 
+The fact table is called songplays table while songs, users, artists and time  tables are the dimensional tables. The songplays table which shows the playing songs consists of the following fields: songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location and user_agent. The songs table is made up of song_id, title, artist_id, year, duration fields. The table shows the title, year of release and durations of each songs in minutes. The artists table illustrates the id, name, location with latitudes and longitudes of the artists. The last but not the least, is the time table that gives specific timelines of the songs in hour, day, week, month, year and weekday. 
+The star schema is shown in the figure below with the fields as well as their data types of each table. The links between the tables are evidently deducible and apparent.  
 ![alt text](table.png "Star Schema")
 
-![Star Schema](table.png)
 
 
 ## Project Steps
@@ -55,5 +55,14 @@ This project is a partial requirement for the completion of Udacity Data Enginee
 * PostgreSQL
 * psycopg2 (a python driver for postgresql)
 
-
-
+## Some Results From the analysis:
+The following were deduced from the datasets by quering the tables after the ETL procecesses' completion:
+* The songplays table has 6820 rows of data.
+* The users table has 96 rows of data.
+* The songs table has 71 rows of data.
+* The artist table has 69 rows of data.
+* The time table has 6813 rows of data.
+* Of the 96 users, 55 are females while 41 are males.
+* 5591 out of the songs played are paid whereas 1229 are played under free subscription.
+* 14 out of the 55 female users are under paid subscription. 
+* Only 6 out of the 41 male users are under paid subscription.
